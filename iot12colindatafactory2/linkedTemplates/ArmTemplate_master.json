@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorageLinkedService'"
 		},
+		"AzureSqlDatabaseLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureSqlDatabaseLinkedService'"
+		},
 		"AzureDataLakeStorageLinkedService_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://iot12colinstorageaccount.dfs.core.windows.net/"
@@ -44,6 +48,9 @@
 					},
 					"AzureDataLakeStorageLinkedService_accountKey": {
 						"value": "[parameters('AzureDataLakeStorageLinkedService_accountKey')]"
+					},
+					"AzureSqlDatabaseLinkedService_connectionString": {
+						"value": "[parameters('AzureSqlDatabaseLinkedService_connectionString')]"
 					},
 					"AzureDataLakeStorageLinkedService_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorageLinkedService_properties_typeProperties_url')]"

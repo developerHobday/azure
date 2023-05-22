@@ -8,6 +8,9 @@
 		"AzureDataLakeStorageLinkedService_accountKey": {
 			"value": ""
 		},
+		"AzureSqlDatabaseLinkedService_connectionString": {
+			"value": ""
+		},
 		"AzureDataLakeStorageLinkedService_properties_typeProperties_url": {
 			"value": "https://iot12colinstorageaccount.dfs.core.windows.net/"
 		},
