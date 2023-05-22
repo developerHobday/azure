@@ -2,7 +2,7 @@
 	"name": "JsonInput",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage1",
+			"referenceName": "AzureDataLakeStorageLinkedService",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
