@@ -1,8 +1,0 @@
-{
-	"name": "iot12colinpipeline",
-	"properties": {
-		"annotations": [],
-		"lastPublishTime": "2023-05-22T03:58:17Z"
-	},
-	"type": "Microsoft.DataFactory/factories/pipelines"
-}
