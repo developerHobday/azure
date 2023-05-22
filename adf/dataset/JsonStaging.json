@@ -1,5 +1,5 @@
 {
-	"name": "Json2",
+	"name": "JsonStaging",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
