@@ -34,3 +34,11 @@ terraform import azurerm_data_factory_dataset_json.main "/subscriptions/3660cb90
 
 Terraform not very good to work with data factory,
 e.g. when creating azurerm_data_factory_dataset_json, it insists that the location must not be an empty string.
+
+# data factory
+input needs to select the exact json to work
+idempotent - pipeline can run multiple times
+can test / debug before publish
+source is saved to git on save, and can resync from git to load
+
+TODO removed the encrypted service in the linked service

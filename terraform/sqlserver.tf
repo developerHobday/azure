@@ -7,6 +7,17 @@ resource "azurerm_mssql_server" "main" {
   administrator_login_password = azurerm_key_vault_secret.db_password.value
   minimum_tls_version          = "1.2"
   tags = local.common_tags
+
+  }
+# TODO allow azure services to access
+
+# Create SQL Server firewall rule for Azure resouces access
+# https://stackoverflow.com/questions/64690173/terraform-azure-server-access-issue
+resource "azurerm_mssql_firewall_rule" "azureservicefirewall" {
+  name                = "allow-azure-service"
+  server_id      = azurerm_mssql_server.main.id
+  start_ip_address    = "0.0.0.0"
+  end_ip_address      = "0.0.0.0"
 }
 
 resource "azurerm_mssql_database" "main" {
