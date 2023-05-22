@@ -103,6 +103,66 @@
 							},
 							"path": "log"
 						}
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['VehicleID']"
+								},
+								"sink": {
+									"name": "vehicleID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['latitiude']"
+								},
+								"sink": {
+									"name": "latitude",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['longitude']"
+								},
+								"sink": {
+									"name": "longitude",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['City']"
+								},
+								"sink": {
+									"name": "city",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"path": "$['temeprature']"
+								},
+								"sink": {
+									"name": "temperature",
+									"type": "Decimal"
+								}
+							},
+							{
+								"source": {
+									"path": "$['speed']"
+								},
+								"sink": {
+									"name": "speed",
+									"type": "Decimal"
+								}
+							}
+						],
+						"collectionReference": ""
 					}
 				},
 				"inputs": [
