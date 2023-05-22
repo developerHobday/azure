@@ -1,0 +1,9 @@
+{
+	"name": "iot12colindatafactory2",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4518dec0-f764-4544-aa3f-4e5aeaed8cf0",
+		"tenantId": "6702b4d7-f682-4f73-b70f-ba1ea9f0237b"
+	}
+}
