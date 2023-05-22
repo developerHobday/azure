@@ -1,0 +1,29 @@
+{
+	"name": "AzureSqlTableIot",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabaseLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "VehicleID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "latitiude",
+				"type": "nvarchar"
+			},
+			{
+				"name": "longitude",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "iot"
+		}
+	}
+}
