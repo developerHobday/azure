@@ -5,10 +5,10 @@
 		"factoryName": {
 			"value": "iot12colindatafactory2"
 		},
-		"AzureDataLakeStorage1_accountKey": {
+		"AzureDataLakeStorageLinkedService_accountKey": {
 			"value": ""
 		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
+		"AzureDataLakeStorageLinkedService_properties_typeProperties_url": {
 			"value": "https://iot12colinstorageaccount.dfs.core.windows.net/"
 		},
 		"containerUri": {

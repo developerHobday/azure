@@ -7,11 +7,11 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "iot12colindatafactory2"
 		},
-		"AzureDataLakeStorage1_accountKey": {
+		"AzureDataLakeStorageLinkedService_accountKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorageLinkedService'"
 		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
+		"AzureDataLakeStorageLinkedService_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://iot12colinstorageaccount.dfs.core.windows.net/"
 		},
@@ -42,11 +42,11 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"AzureDataLakeStorage1_accountKey": {
-						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					"AzureDataLakeStorageLinkedService_accountKey": {
+						"value": "[parameters('AzureDataLakeStorageLinkedService_accountKey')]"
 					},
-					"AzureDataLakeStorage1_properties_typeProperties_url": {
-						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					"AzureDataLakeStorageLinkedService_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorageLinkedService_properties_typeProperties_url')]"
 					}
 				}
 			},

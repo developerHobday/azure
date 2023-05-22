@@ -7,11 +7,11 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "iot12colindatafactory2"
 		},
-		"AzureDataLakeStorage1_accountKey": {
+		"AzureDataLakeStorageLinkedService_accountKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorageLinkedService'"
 		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
+		"AzureDataLakeStorageLinkedService_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://iot12colinstorageaccount.dfs.core.windows.net/"
 		}
@@ -21,29 +21,29 @@
 	},
 	"resources": [
 		{
-			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStorage1')]",
+			"name": "[concat(parameters('factoryName'), '/AzureDataLakeStorageLinkedService')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
 				"type": "AzureBlobFS",
 				"typeProperties": {
-					"url": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]",
+					"url": "[parameters('AzureDataLakeStorageLinkedService_properties_typeProperties_url')]",
 					"accountKey": {
 						"type": "SecureString",
-						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+						"value": "[parameters('AzureDataLakeStorageLinkedService_accountKey')]"
 					}
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Json1')]",
+			"name": "[concat(parameters('factoryName'), '/JsonInput')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
+					"referenceName": "AzureDataLakeStorageLinkedService",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -58,16 +58,16 @@
 				"schema": {}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorageLinkedService')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Json2')]",
+			"name": "[concat(parameters('factoryName'), '/JsonStaging')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
+					"referenceName": "AzureDataLakeStorageLinkedService",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
@@ -81,11 +81,11 @@
 				"schema": {}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorageLinkedService')]"
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
+			"name": "[concat(parameters('factoryName'), '/iot12colinpipeline')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -127,14 +127,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "Json1",
+								"referenceName": "JsonInput",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "Json2",
+								"referenceName": "JsonStaging",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -149,8 +149,8 @@
 				"lastPublishTime": "2023-05-22T07:24:11Z"
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Json1')]",
-				"[concat(variables('factoryId'), '/datasets/Json2')]"
+				"[concat(variables('factoryId'), '/datasets/JsonInput')]",
+				"[concat(variables('factoryId'), '/datasets/JsonStaging')]"
 			]
 		}
 	]
