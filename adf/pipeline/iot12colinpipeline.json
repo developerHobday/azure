@@ -52,7 +52,7 @@
 				]
 			},
 			{
-				"name": "Copy data1_copy1",
+				"name": "Load data to MsSql Db",
 				"type": "Copy",
 				"dependsOn": [
 					{
@@ -89,53 +89,20 @@
 						"sqlWriterUseTableLock": false
 					},
 					"enableStaging": false,
-					"enableSkipIncompatibleRow": true,
-					"translator": {
-						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"path": "$['VehicleID']"
-								},
-								"sink": {
-									"name": "VehicleID",
-									"type": "String"
-								}
+					"enableSkipIncompatibleRow": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Info",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "AzureDataLakeStorageLinkedService",
+								"type": "LinkedServiceReference"
 							},
-							{
-								"source": {
-									"path": "$['latitiude']"
-								},
-								"sink": {
-									"name": "latitiude",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['longitude']"
-								},
-								"sink": {
-									"name": "longitude",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['City']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['temeprature']"
-								}
-							},
-							{
-								"source": {
-									"path": "$['speed']"
-								}
-							}
-						]
+							"path": "log"
+						}
 					}
 				},
 				"inputs": [
@@ -146,7 +113,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "AzureSqlTable1",
+						"referenceName": "AzureSqlTableIot",
 						"type": "DatasetReference"
 					}
 				]

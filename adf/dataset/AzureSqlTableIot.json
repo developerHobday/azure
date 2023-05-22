@@ -1,5 +1,5 @@
 {
-	"name": "AzureSqlTable1",
+	"name": "AzureSqlTableIot",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabaseLinkedService",
