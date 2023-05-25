@@ -189,7 +189,11 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
-				"userProperties": []
+				"userProperties": [],
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksLink",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": [],
