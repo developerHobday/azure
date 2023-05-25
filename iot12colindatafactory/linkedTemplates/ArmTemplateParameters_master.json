@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "iot12colindatafactory"
+		},
+		"AzureDataLakeStorageLinkedService_accountKey": {
+			"value": ""
+		},
+		"AzureFunction1_functionKey": {
+			"value": ""
+		},
+		"AzureSqlDatabaseLinkedService_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorageLinkedService_properties_typeProperties_url": {
+			"value": "https://iot12colinstorageaccount.dfs.core.windows.net/"
+		},
+		"AzureFunction1_properties_typeProperties_functionAppUrl": {
+			"value": "https://iot-colin10.azurewebsites.net"
+		},
+		"AzureKeyVaultLink_properties_typeProperties_baseUrl": {
+			"value": "https://iot12colinkeyvault.vault.azure.net/"
+		},
+		"inputStorageTrigger_properties_iot12colinpipeline_parameters_fileName": {
+			"value": "@triggerBody().fileName"
+		},
+		"inputStorageTrigger_properties_typeProperties_scope": {
+			"value": "/subscriptions/3660cb90-078d-47b8-992b-f74c84f3c386/resourceGroups/iot12colinresourcegroup/providers/Microsoft.Storage/storageAccounts/iot12colinstorageaccount"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
