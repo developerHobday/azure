@@ -4,8 +4,14 @@ resource "azurerm_storage_account" "main" {
   location                 = azurerm_resource_group.main.location
   account_tier             = "Standard"
   account_replication_type = "GRS"
+  is_hns_enabled = true
 
   tags = local.common_tags
+}
+
+resource "azurerm_storage_data_lake_gen2_filesystem" "main" {
+  name               = "${var.project}${var.owner}filesystem"
+  storage_account_id = azurerm_storage_account.main.id
 }
 
 resource "azurerm_storage_container" "sc_input" {
