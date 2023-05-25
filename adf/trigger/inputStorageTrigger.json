@@ -8,6 +8,9 @@
 				"pipelineReference": {
 					"referenceName": "iot12colinpipeline",
 					"type": "PipelineReference"
+				},
+				"parameters": {
+					"fileName": "@triggerBody().fileName"
 				}
 			}
 		],

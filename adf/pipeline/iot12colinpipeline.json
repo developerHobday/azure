@@ -199,6 +199,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"fileName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"lastPublishTime": "2023-05-22T07:24:11Z"
 	},
