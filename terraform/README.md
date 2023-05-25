@@ -41,7 +41,6 @@ idempotent - pipeline can run multiple times
 can test / debug before publish
 source is saved to git on save, and can resync from git to load
 
-TODO removed the encrypted service in the linked service
 
 
 # sas token 
