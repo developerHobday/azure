@@ -17,7 +17,7 @@
 				"typeProperties": {
 					"notebookPath": "/Shared/validate",
 					"baseParameters": {
-						"filename": {
+						"fileName": {
 							"value": "@pipeline().parameters.fileName",
 							"type": "Expression"
 						}
