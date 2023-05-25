@@ -13,7 +13,7 @@
 				},
 				"secretName": "databricks-access-token"
 			},
-			"newClusterNodeType": "Standard_DS4_v2",
+			"newClusterNodeType": "Standard_D4s_v3",
 			"newClusterNumOfWorker": "1",
 			"newClusterVersion": "12.2.x-scala2.12",
 			"newClusterInitScripts": [],
