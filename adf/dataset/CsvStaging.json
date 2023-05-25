@@ -1,10 +1,6 @@
 {
 	"name": "CsvStaging",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorageLinkedService",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

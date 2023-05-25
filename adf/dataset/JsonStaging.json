@@ -1,10 +1,6 @@
 {
 	"name": "JsonStaging",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorageLinkedService",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "Json",
 		"typeProperties": {
