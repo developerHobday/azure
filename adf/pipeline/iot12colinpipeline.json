@@ -190,6 +190,9 @@
 					"secureInput": false
 				},
 				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Shared/validate"
+				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricksLink",
 					"type": "LinkedServiceReference"
