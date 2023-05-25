@@ -11,7 +11,7 @@ resource "azurerm_data_factory" "main" {
     account_name    = "developerHobday"
     branch_name     = "adf"
     git_url = "https://github.com"
-    repository_name = "iot"
+    repository_name = "azure"
     root_folder     = "/adf/"
   }
 }
