@@ -35,3 +35,7 @@ variable "DB_PASSWORD" {
   type        = string
   sensitive   = true
 }
+variable "DATABRICKS_ACCESS_TOKEN" {
+  type        = string
+  sensitive   = true
+}

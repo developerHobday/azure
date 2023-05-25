@@ -42,3 +42,21 @@ can test / debug before publish
 source is saved to git on save, and can resync from git to load
 
 TODO removed the encrypted service in the linked service
+
+
+# sas token 
+For error when trying to access (read) storage 
+Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature.
+
+Ensure the signed version in azurerm_storage_account_sas is supported.  See
+https://github.com/hashicorp/terraform-provider-azurerm/issues/18007
+
+# Databricks
+
+Create a secrets scope
+> databricks secrets create-scope --scope <scope-name>
+
+How to assign AzureDatabricks as a secrets reader to key vault
+https://learn.microsoft.com/en-us/azure/databricks/security/secrets/secret-scopes
+Follow Azure Key Vault-backed scopes
+https://github.com/MicrosoftDocs/azure-docs/issues/105196

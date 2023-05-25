@@ -22,3 +22,16 @@ resource "azurerm_key_vault_secret" "db_password" {
   tags = local.common_tags
 }
 
+resource "azurerm_key_vault_secret" "storage_sas" {
+  name         = "storage-sas"
+  value = data.azurerm_storage_account_sas.main.sas
+  key_vault_id = azurerm_key_vault.main.id
+  tags = local.common_tags
+}
+resource "azurerm_key_vault_secret" "databricks_token" {
+  name         = "databricks-access-token"
+  value = var.DATABRICKS_ACCESS_TOKEN
+  key_vault_id = azurerm_key_vault.main.id
+  tags = local.common_tags
+}
+
