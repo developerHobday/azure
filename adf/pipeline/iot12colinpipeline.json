@@ -3,182 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
-				"type": "Copy",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "JsonSource",
-						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
-							"wildcardFileName": "*",
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "JsonReadSettings"
-						}
-					},
-					"sink": {
-						"type": "JsonSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "JsonWriteSettings"
-						}
-					},
-					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "JsonInput",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "JsonStaging",
-						"type": "DatasetReference"
-					}
-				]
-			},
-			{
-				"name": "Load data to MsSql Db",
-				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "Copy data1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "JsonSource",
-						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
-							"wildcardFileName": "*",
-							"enablePartitionDiscovery": false
-						},
-						"formatSettings": {
-							"type": "JsonReadSettings"
-						}
-					},
-					"sink": {
-						"type": "AzureSqlSink",
-						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
-					},
-					"enableStaging": false,
-					"enableSkipIncompatibleRow": false,
-					"logSettings": {
-						"enableCopyActivityLog": true,
-						"copyActivityLogSettings": {
-							"logLevel": "Info",
-							"enableReliableLogging": false
-						},
-						"logLocationSettings": {
-							"linkedServiceName": {
-								"referenceName": "AzureDataLakeStorageLinkedService",
-								"type": "LinkedServiceReference"
-							},
-							"path": "log"
-						}
-					},
-					"translator": {
-						"type": "TabularTranslator",
-						"mappings": [
-							{
-								"source": {
-									"path": "$['VehicleID']"
-								},
-								"sink": {
-									"name": "vehicleID",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['latitiude']"
-								},
-								"sink": {
-									"name": "latitude",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"path": "$['longitude']"
-								},
-								"sink": {
-									"name": "longitude",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"path": "$['City']"
-								},
-								"sink": {
-									"name": "city",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"path": "$['temeprature']"
-								},
-								"sink": {
-									"name": "temperature",
-									"type": "Decimal"
-								}
-							},
-							{
-								"source": {
-									"path": "$['speed']"
-								},
-								"sink": {
-									"name": "speed",
-									"type": "Decimal"
-								}
-							}
-						],
-						"collectionReference": ""
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "JsonStaging",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "AzureSqlTableIot",
-						"type": "DatasetReference"
-					}
-				]
-			},
-			{
 				"name": "Notebook1",
 				"type": "DatabricksNotebook",
 				"dependsOn": [],
@@ -191,7 +15,13 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Shared/validate"
+					"notebookPath": "/Shared/validate",
+					"baseParameters": {
+						"filename": {
+							"value": "@pipeline().parameters.fileName",
+							"type": "Expression"
+						}
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricksLink",
